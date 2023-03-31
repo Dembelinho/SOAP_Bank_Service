@@ -6,6 +6,8 @@ import javax.jws.WebService;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
+
 @WebService(serviceName = "BanqueWS")
 
 public class BanqueService {
@@ -20,8 +22,8 @@ public class BanqueService {
     @WebMethod(operationName = "listofComptes")
     public List<Compte> comptesList(){
         List<Compte> list=new ArrayList<>();
-        list.add(new Compte(1,Math.random()*9000,new Date()));
-        list.add(new Compte(2,Math.random()*9000,new Date()));
+        list.add(new Compte(1,new Random().nextDouble() *9000,new Date()));
+        list.add(new Compte(2,new Random().nextDouble() *9000,new Date()));
         list.add(new Compte(3,Math.random()*9000,new Date()));
         return list;
     }
